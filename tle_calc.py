@@ -26,8 +26,9 @@ def generate_csv(sat, time, eol_index, us_inc, num_samples, data):
 
     satellite = twoline2rv(line1, line2, wgs84)
 
+    starttime = time
     for i in range(num_samples):
-        datestamp = time.strftime("%Y,%m,%d,%H,%M,%S.%f")
+	datestamp = str((time - starttime).total_seconds())
 
         second = float(str(time.second) + "." + str(time.microsecond))
 
